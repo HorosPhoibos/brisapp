@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Brisa | The Safe Haven</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="parchment-card splash-content">
+            <h2 class="pixel-title text-red">THE SAFE HAVEN</h2>
+            <div class="avatar-frame">
+                <img src="depan.png" alt="Lady Brisa" class="pixel-avatar">
+            </div>
+            <p class="pixel-text">"The night is dark and full of terrors, but inside this tavern, you are safe, My Lady."</p>
+            <button id="btn-start" class="btn-wood">ENTER THE TAVERN 🗡️</button>
+        </div>
+    </div>
+
+    <div id="main-app" style="display: none;">
+        <div class="container">
+            <header>
+                <div class="banner">
+                    <h1 class="pixel-title text-gold">HOUSE BRISA</h1>
+                    <p class="pixel-text subtitle">Protector of the Realm's Guests (GRO) 🛡️</p>
+                </div>
+                <div class="parchment-card scroll-box">
+                    <p class="pixel-text label">📜 THE DIVINE WHISPER</p>
+                    <p id="daily-verse" class="pixel-text verse">Unrolling the scroll...</p>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                
+                <div class="side-panel">
+                    <div class="parchment-card center-text">
+                        <div class="avatar-frame large">
+                            <img src="brisa.png" alt="Brisa">
+                        </div>
+                        <h3 class="pixel-title mt-10">LADY BRISA</h3>
+                        <p class="badge-role">Master of Guests</p>
+                        
+                        <div class="wood-inset mt-10">
+                            <p class="pixel-text label">THE MAESTER'S CLOCK</p>
+                            <span id="clock" class="pixel-clock">00:00:00</span>
+                        </div>
+                    </div>
+
+                    <div class="parchment-card mt-10">
+                        <p class="pixel-text label center-text">🎂 THE ROYAL NAME DAY</p>
+                        <div class="wood-inset mt-10">
+                            <p class="pixel-text" style="font-size: 18px; color: var(--parchment);">
+                                Turning <span id="upcoming-age" class="text-gold" style="font-size: 24px; font-weight: bold;">0</span>
+                            </p>
+                            <div id="bday-countdown" class="pixel-title text-gold mt-10" style="line-height: 1.5; font-size: 12px;">
+                                --D --H --M --S
+                            </div>
+                        </div>
+                        <p class="pixel-text center-text italic mt-10" style="font-size: 16px;">"Winter is coming, but first, cake."</p>
+                    </div>
+
+                    <div class="parchment-card mt-10">
+                        <p class="pixel-text label">🏰 REALM'S CALENDAR</p>
+                        <div class="calendar-widget">
+                            <div class="calendar-header">
+                                <button id="prev-month" class="btn-wood mini">◀</button>
+                                <span class="pixel-title" id="month-display" style="font-size: 10px;">MONTH</span>
+                                <button id="next-month" class="btn-wood mini">▶</button>
+                            </div>
+                            <div class="calendar-grid" id="calendar-grid">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-panel">
+                    <div class="parchment-card mb-10 companion-box">
+                        <p class="pixel-text label center-text">🐉 YOUR LOYAL COMPANION</p>
+                        <div class="big-companion-frame">
+                            <img src="flappybris.png" alt="Loyal Companion" class="floating-bris">
+                        </div>
+                        <p class="pixel-text center-text italic mt-10" style="font-size: 18px;">"Always watching over you, My Lady."</p>
+                    </div>
+
+                    <div class="parchment-card quest-board">
+                        <h4 class="pixel-title center-text text-red" style="line-height: 1.5;">🗡️ ACTIVE QUESTS</h4>
+                        <p class="pixel-text center-text italic mb-10">See how many battles you've won, My Lady.</p>
+                        
+                        <ul id="todo-list" class="pixel-list">
+                            <li class="done"><span class="checkbox">☑</span> <span class="quest-text">Wisudah (Ascension) ✨</span></li>
+                            <li class="done"><span class="checkbox">☑</span> <span class="quest-text">Healing (Restoring HP) 🧪</span></li>
+                            <li class="done"><span class="checkbox">☑</span> <span class="quest-text">Cari cuan (Looting Gold) 💰</span></li>
+                            <li><span class="checkbox">☐</span> <span class="quest-text">Bahagiain keluarga (Honor the House)</span></li>
+                            <li><span class="checkbox">☐</span> <span class="quest-text">Punya doi (Find a Worthy Knight)</span></li>
+                            <li><span class="checkbox">☐</span> <span class="quest-text">Married (The Royal Wedding)</span></li>
+                            <li><span class="checkbox">☐</span> <span class="quest-text">Cari cuan lagi, tapi lebih banyak (Dragon's Hoard)</span></li>
+                            <li><span class="checkbox">☐</span> <span class="quest-text">Healing lagi (Tavern Rest)</span></li>
+                            <li><span class="checkbox">☐</span> <span class="quest-text">Bahagia pokoknya (Everlasting Peace in the Realm)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="weather-container">
+                        <div class="parchment-card weather-box">
+                            <span class="pixel-text label">KINGDOM OF SOLO</span>
+                            <span class="pixel-title temp" id="temp-slo">--°</span>
+                        </div>
+                        <div class="parchment-card weather-box">
+                            <span class="pixel-text label">KINGDOM OF JKT</span>
+                            <span class="pixel-title temp" id="temp-jkt">--°</span>
+                        </div>
+                    </div>
+
+                    <div class="parchment-card mt-10">
+                        <p class="pixel-text label">🗺️ MAP TO THE TAVERN</p>
+                        <a href="https://www.google.com/maps/search/Taman+Solo,+Surakarta" target="_blank" class="map-link">
+                            <div class="wood-inset map-wrapper">
+                                <img src="map.jpeg" alt="Peta Taman Solo" class="map-image">
+                                <div class="map-hover-text pixel-title">FAST TRAVEL<br>(CLICK)</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="parchment-card mt-10 game-box">
+                        <p class="pixel-text label center-text">🐉 ESCAPE THE WINTER</p>
+                        <p class="pixel-text center-text" style="font-size: 16px;">(Lompatin aja pusingnya!)</p>
+                        <div class="wood-inset game-border mt-10">
+                            <canvas id="flappyCanvas" width="220" height="150"></canvas>
+                            <div id="game-over" class="game-overlay" style="display:none;">
+                                <p class="pixel-title text-red" style="font-size: 12px;">KEPENTOK</p>
+                                <p class="pixel-text">Gold: <span id="score-display">0</span></p>
+                                <button onclick="resetGame()" class="btn-wood small">RESPAWN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
