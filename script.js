@@ -1,11 +1,49 @@
 const birdImg = new Image();
 birdImg.src = 'flappybris.png';
 
-// 1. SPLASH SCREEN
+// ASET AUDIO & TOGGLE
+const bgm = document.getElementById('bgm');
+const musicToggle = document.getElementById('music-toggle');
+let isMusicPlaying = false;
+
+// 1. SPLASH SCREEN & AUTOPLAY MUSIC
 document.getElementById('btn-start').addEventListener('click', () => {
+    // Sembunyikan splash screen, tampilkan aplikasi utama
     document.getElementById('splash-screen').style.display = 'none';
     document.getElementById('main-app').style.display = 'block';
+    
+    // Tampilkan tombol musik
+    musicToggle.style.display = 'block';
+    
+    // Mainkan lagu (Volume 40% agar tidak terlalu mengagetkan)
+    bgm.volume = 0.4;
+    let playPromise = bgm.play();
+    
+    // Cegah error jika browser tetap memblokir
+    if (playPromise !== undefined) {
+        playPromise.then(_ => {
+            isMusicPlaying = true;
+            musicToggle.innerText = '🔊';
+        }).catch(error => {
+            console.log("Browser masih memblokir autoplay", error);
+            isMusicPlaying = false;
+            musicToggle.innerText = '🔇';
+        });
+    }
+
     updateGame(); 
+});
+
+// LOGIKA TOMBOL MATIKAN/NYALAKAN MUSIK
+musicToggle.addEventListener('click', () => {
+    if (isMusicPlaying) {
+        bgm.pause();
+        musicToggle.innerText = '🔇';
+    } else {
+        bgm.play();
+        musicToggle.innerText = '🔊';
+    }
+    isMusicPlaying = !isMusicPlaying;
 });
 
 // 2. THE MAESTER'S CLOCK
